@@ -1,5 +1,5 @@
 - name: mysql
-  hosts: mysql
+  hosts: practice
   become: yes
   tasks:
   - name: Install libraries
