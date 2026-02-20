@@ -28,7 +28,7 @@
     
   - name: print mysql_output
     ansible.builtin.debug:
-      msg: "MYSQL_OUTPUT"
+      msg: " {{ MYSQL_OUTPUT }}"
   
 
 
