@@ -23,7 +23,7 @@
       login_user: root
       login_password: ExpenseApp@1
       login_host: mysql.pavancloud5.online
-      register: MYSQL_OUTPUT
+    register: MYSQL_OUTPUT
     
   - name: print mysql_output
     ansible.builtin.debug:
