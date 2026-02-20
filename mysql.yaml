@@ -1,0 +1,17 @@
+- name: mysql
+  hosts: mysql
+  become: root
+  tasks:
+  - name: install mysql-server
+    ansible.builtin.package:
+      name: mysql-server
+      state: installed
+
+  - name: start the mysql-server
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+      
+
+  
