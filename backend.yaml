@@ -13,5 +13,13 @@
       name: nodejs
       state: installed
   
+  - name: create user
+    ansible.builtin.user:
+      name: johnd
+  
+  - name: create /app directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
 
      
