@@ -4,8 +4,11 @@
   tasks:
   - name: Install PyMySQL Python package
     ansible.builtin.pip:
-      name: PyMySQL
+      name: "{{ item }}"
       state: present
+    loop:
+    - cryptography
+    - PyMySQL
 
   - name: Install mysql-server
     ansible.builtin.package:
