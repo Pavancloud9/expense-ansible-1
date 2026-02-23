@@ -10,8 +10,11 @@
 
   - name: Install nodejs
     ansible.builtin.package:
-      name: nodejs
+      name: "{{ item }}"
       state: installed
+    loop:
+    - nodejs
+    - mysql
   
   - name: create user
     ansible.builtin.user:
@@ -37,8 +40,26 @@
     community.general.npm:
       path: /app
       state: present
+
+  - name: Copy backend service 
+    ansible.builtin.copy:
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
+   
+  - name: import mysql data
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.pavancloud5.online
+      target: /app/schema/backend.sql
+
+  
+
   
   
+
   
 
   
